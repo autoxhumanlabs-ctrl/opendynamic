@@ -2,6 +2,11 @@
 
 Each version gets a GitHub release with a ready-to-run download. To ship a new version: add a `## vX.Y.Z` section at the top of this list, commit it, then push a tag with the same name (`git tag vX.Y.Z` then `git push origin vX.Y.Z`).
 
+## v1.0.1
+
+- **New icon:** the OpenDynamic dragon logo, a Japanese dragon coiled around the island. It shows on the app, its shortcuts and the taskbar.
+- **Clearer Liquid Glass by default:** less frost and less darkness, so you can see what's behind the card.
+
 ## v1.0.0
 
 First public release.
