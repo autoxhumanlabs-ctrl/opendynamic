@@ -1,3 +1,5 @@
+![OpenDynamic](docs/social-preview.png)
+
 # OpenDynamic: Dynamic Island for Windows
 
 A notch at the top of your Windows screen, inspired by the iPhone Dynamic Island. It shows what's playing with a live audio visualizer. Push the cursor to the top edge to open a card with your clipboard, bookmarks, market prices and settings, all on a see-through Liquid Glass background.
@@ -87,3 +89,5 @@ Self-test: `Island.exe --selftest` (exit code 0 means it passed).
 
 ## Built with
 .NET 9 WPF, [NAudio](https://github.com/naudio/NAudio) for audio capture, and the Windows media and Win32 APIs.
+
+The logo, a Japanese dragon coiled around the island, is drawn in code: `python docs/logo.py` regenerates the SVGs.
