@@ -1,0 +1,40 @@
+# Push a tag like v1.2.0 -> builds a ready-to-run zip and publishes a GitHub release with that version's CHANGELOG notes.
+name: Release
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "9.0.x"
+
+      - name: Build (self-contained, no .NET install needed)
+        shell: pwsh
+        run: |
+          $v = "${{ github.ref_name }}".TrimStart("v")
+          dotnet publish Island.csproj -c Release -r win-x64 --self-contained true -p:PublishReadyToRun=true -p:Version=$v -o out/DynamicIsland
+          ./out/DynamicIsland/Island.exe --selftest | Out-Null; if ($LASTEXITCODE) { throw "self-test failed" }
+          Compress-Archive out/DynamicIsland "DynamicIsland-${{ github.ref_name }}-win-x64.zip"
+
+      - name: Release notes from CHANGELOG
+        shell: pwsh
+        run: |
+          $text = Get-Content CHANGELOG.md -Raw
+          $m = [regex]::Match($text, '(?ms)^## ' + [regex]::Escape('${{ github.ref_name }}') + '\s*$(.*?)(?=^## |\z)')
+          $notes = if ($m.Success) { $m.Groups[1].Value.Trim() } else { "See CHANGELOG.md" }
+          $notes += "`n`n**Install:** download the zip, extract it anywhere, run ``Island.exe``. Windows 10 (2004+) or 11."
+          Set-Content notes.md $notes
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          name: Dynamic Island ${{ github.ref_name }}
+          body_path: notes.md
+          files: DynamicIsland-${{ github.ref_name }}-win-x64.zip

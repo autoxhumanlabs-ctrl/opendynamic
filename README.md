@@ -52,9 +52,13 @@ Everything applies live and is saved in `HKCU\Software\Island`.
 
 ![Settings](docs/settings.png)
 
-## Install
+## Download
 
-You need Windows 10 (version 2004 or later) or Windows 11, and the [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0).
+Get the latest zip from [Releases](https://github.com/autoxhumanlabs-ctrl/opendynamic/releases/latest). Extract it anywhere and run `Island.exe`. Nothing else needs installing. It needs Windows 10 (version 2004 or later) or Windows 11. What changed in each version is in the [changelog](CHANGELOG.md).
+
+## Build from source
+
+You need the [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0).
 
 ```bash
 git clone https://github.com/autoxhumanlabs-ctrl/opendynamic.git

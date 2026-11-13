@@ -11,6 +11,7 @@
     <RootNamespace>Island</RootNamespace>
     <TieredPGO>true</TieredPGO>
     <ApplicationIcon>island.ico</ApplicationIcon>
+    <Version>1.0.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="NAudio.Wasapi" Version="2.2.1" />
