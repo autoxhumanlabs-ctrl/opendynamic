@@ -14,6 +14,8 @@ A notch at the top of your Windows screen, inspired by the iPhone Dynamic Island
 - **Synced lyrics:** optional, from lrclib.net.
 
 ### The notch
+
+![Collapsed notch](docs/collapsed.png)
 - **Collapsed:** a small black notch that clicks through, so it never blocks your browser tabs. It shows the cover, a beat ring and a progress line. With nothing playing, it shows a clock.
 - **Hides itself:** it slides up out of the way when the cursor comes near, and hides during real fullscreen video or games.
 - **Opens:** push the cursor to the very top edge of the screen.
@@ -37,6 +39,8 @@ One-click tiles for YouTube, Subscriptions, Watch later, Netflix, TradingView, a
 YouTube | https://www.youtube.com
 My chart | https://www.tradingview.com/chart/?symbol=OANDA:XAUUSD
 ```
+
+![Links tab](docs/links.png)
 
 ### Markets
 Gold, silver and NAS100 futures prices, with the day's change and a sparkline. Data comes from Yahoo Finance and may be delayed; it refreshes every 60 seconds while the tab is open. Click a card to open the TradingView chart.
